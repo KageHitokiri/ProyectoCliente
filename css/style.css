@@ -1,0 +1,9 @@
+*{
+    margin:0;
+    padding: 0;
+}
+textarea {
+    width: 400px;
+    height: 200px;
+    resize: none;    
+}
