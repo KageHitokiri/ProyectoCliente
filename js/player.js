@@ -1,10 +1,11 @@
-class Player {    
+class Player {   
+
     constructor(name, maxHp, damage) {
         this.name = name;
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.damage = damage;
-        this.potionCounter = 0;
+        this.potionCounter = 1;
     }
 
     getName() {
@@ -34,7 +35,42 @@ class Player {
     setPotions(value){
         this.potionCounter = value;
     }
+    test(){
+        console.log(this.damage);
+        printDamage(this.damage,"Aarón");
+    }
+
+    attack() {
+        console.log(this.damage);
+        player.hp -= player.damage;
+        printPlayerHP();
+
+        printDamage(this.damage,"Tu enemigo");
+        console.log(player.hp);
+    }
+    
+    usePotion(){    
+        let health =10;
+        console.log(this.potionCounter);
+        if (this.potionCounter > 0) {
+            this.potionCounter--;
+            
+            player.hp += health;            
+            log.value += `Te sanas ${health} puntos de vida.`        
+            if (player.hp > player.maxHp) {
+                player.hp = player.maxHp;
+                log.value+=" Tu salud está al máximo\n";     
+                log.value += `Te quedan un total de ${this.potionCounter} pociones.`               
+            } else {
+                log.value+="\n";
+            }
+        } else {
+            log.value+="No te quedan pociones\n";
+        }
+        printPlayerHP();
+    }
 }
+
 
 class Enemy extends Player {
     constructor(name, maxHp, damage, time) {
