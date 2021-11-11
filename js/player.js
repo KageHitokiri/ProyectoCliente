@@ -39,7 +39,10 @@ class Player {
         console.log(this.damage);
         printDamage(this.damage,"Aarón");
     }
-
+    /**
+     * Añadir el parámetro target, para extraerle tanto el nombre como para aplicarle el daño.
+     * Crear una función para causar el daño al target
+     */
     attack() {
         console.log(this.damage);
         player.hp -= player.damage;
