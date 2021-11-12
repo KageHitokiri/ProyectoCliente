@@ -1,12 +1,10 @@
 let player = new Player("Your Name Here",15,5);
-let enemy = new Enemy("Enemy Name",20,3, 2500, 4, 25);
+let enemy = new Enemy("Enemy Name",20,3, 2500, 1, 25, 20);
 
-window.addEventListener('load',()=>{    
-
-    console.log(player.getDamage());
+window.addEventListener('load',()=>{        
     
-    //let name = prompt("Introduce un nombre");
     let log = document.getElementById('log');
+    enemy.createOgre();
     document.getElementById('statistics__name').innerHTML += player.getName();    
     document.getElementById('statistics__currentHP').innerHTML = `Salud: ${player.getHp()} / ${player.getMaxHp()}`;   
     document.getElementById('statistics__current__Gold').innerHTML += `Oro: ${player.getGold()}`;    

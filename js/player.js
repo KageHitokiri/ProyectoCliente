@@ -119,12 +119,12 @@ class Enemy extends Player {
     }
     
     lootMessage() {
-        let lootMessage = `Obtienes: \n`;
+        let lootMessage = `Obtienes: `;
         if (this.potionCounter===0) {                        
         } else if (this.potionCounter===1) {
-            lootMessage += "\t-1 poción";
+            lootMessage += "\n\t-1 poción";
         } else {
-            lootMessage += `\t-${this.potionCounter} pociones`;
+            lootMessage += `\n\t-${this.potionCounter} pociones`;
         }
 
         lootMessage += `\n\t-${this.exp} puntos de experiencia\n`;
@@ -132,10 +132,42 @@ class Enemy extends Player {
     }
 
     lootEnemy(player){
-        
         player.addExp(this.exp);
         player.addGold(this.gold);
         player.addPotions(this.potionCounter);
         updatePlayerData();
+    }
+
+    createGoblin(){
+        this.name = "Goblin";
+        this.maxHp = 5;
+        this.hp=this.maxHp;
+        this.damage=2;
+        this.time = 1000;
+        this.potionCounter = 0;
+        this.exp = 5;
+        this.gold = 2;
+    }
+
+    createOrc(){
+        this.name = "Orco";
+        this.maxHp = 25;
+        this.hp=this.maxHp;
+        this.damage = 5;
+        this.time = 2000;        
+        this.potionCounter = 2;
+        this.exp = 40;
+        this.gold = 10;
+    }
+
+    createOgre(){
+        this.name = "Ogro";
+        this.maxHp = 50;
+        this.hp=this.maxHp;
+        this.damage = 15;
+        this.time = 3000;        
+        this.potionCounter = 1;
+        this.exp = 100;
+        this.gold = 20;
     }
 }
