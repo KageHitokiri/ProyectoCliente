@@ -5,8 +5,8 @@ class Player {
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.damage = damage;
-        this.exp = 25;
-        this.gold = 10;
+        this.exp = 0;
+        this.gold = 0;
         this.potionCounter = 1;
         this.isAliveStatus = true;
     }
@@ -64,10 +64,20 @@ class Player {
         this.exp += value;
     }
 
+    getAliveStatus(){
+        return this.isAliveStatus;
+    }
+
+    kill(){
+        this.isAliveStatus = false;
+    }
+    raise(){
+        this.isAliveStatus = true;
+    }
+
 
     attack(target) { 
         let hpLose = target.getHp(); 
-
         hpLose -= this.damage;  
         target.setHp(hpLose);
         updatePlayerHP();
@@ -75,11 +85,12 @@ class Player {
         printDamage(this.damage,target.getName());  
 
         if (target.getHp()<=0) {
-            target.isAliveStatus = false;
+            target.kill();
             log.value+=`${target.getName()} ha caido.\n`;
             if (typeof(target==Enemy)) {
                 target.lootMessage();
                 target.lootEnemy(this);
+                console.log(target.getAliveStatus());
             }
         } 
     }
@@ -110,9 +121,9 @@ class Player {
 }
 
 class Enemy extends Player {
-    constructor(name, maxHp, damage, time, potions, exp, gold) {
+    constructor(name, maxHp, damage, attackTime, potions, exp, gold) {
         super(name, maxHp, damage);
-        this.time = time
+        this.attackTime = attackTime
         this.potionCounter = potions;
         this.exp = exp
         this.gold = gold;
@@ -130,6 +141,28 @@ class Enemy extends Player {
         lootMessage += `\n\t-${this.exp} puntos de experiencia\n`;
         log.value+=lootMessage;        
     }
+    
+    attack(target) { 
+        let hpLose = target.getHp(); 
+        hpLose -= this.damage;  
+        target.setHp(hpLose);
+        updatePlayerHP();
+        updateEnemyHP();
+        printDamage(this.damage,target.getName());              
+    }
+
+    enemyAttack(target){
+        console.log("dentro de ataque");
+        if (this.isAliveStatus) {
+            console.log("Al fondo");
+            setInterval(()=>{
+                this.attack(target)
+            },this.attackTime);
+        } else {
+            console.log("tamuerto");
+        }
+        
+    }
 
     lootEnemy(player){
         player.addExp(this.exp);
@@ -143,10 +176,11 @@ class Enemy extends Player {
         this.maxHp = 5;
         this.hp=this.maxHp;
         this.damage=2;
-        this.time = 1000;
+        this.attackTime = 1000;
         this.potionCounter = 0;
         this.exp = 5;
         this.gold = 2;
+        this.isAliveStatus = true;
     }
 
     createOrc(){
@@ -154,10 +188,11 @@ class Enemy extends Player {
         this.maxHp = 25;
         this.hp=this.maxHp;
         this.damage = 5;
-        this.time = 2000;        
+        this.attackTime = 2000;        
         this.potionCounter = 2;
         this.exp = 40;
         this.gold = 10;
+        this.isAliveStatus = true;
     }
 
     createOgre(){
@@ -165,9 +200,10 @@ class Enemy extends Player {
         this.maxHp = 50;
         this.hp=this.maxHp;
         this.damage = 15;
-        this.time = 3000;        
+        this.attackTime = 3000;        
         this.potionCounter = 1;
         this.exp = 100;
         this.gold = 20;
+        this.isAliveStatus = true;
     }
 }
