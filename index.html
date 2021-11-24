@@ -9,10 +9,12 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>    
     
+    <script src="js/interfaces.js"></script>
     <script src="js/player.js"></script>
     <script src="js/combat.js"></script>
     <script src="js/main.js"></script>    
     <script src="js/printables.js"></script>
+    
     
  
 </head>
@@ -25,7 +27,7 @@
             <label>Usuario</label><br>
             <input type="password"/>
             <label>Contraseña</label><br>
-            <input type="submit" value="Enviar"><br>
+            <input id="loginBtn" type="submit" value="Enviar"><br>
         </form>
     </div>
 
@@ -48,7 +50,7 @@
             </select><br>
         
             <br>
-            <input type="submit" value="Crear personaje" id="char__create">
+            <button id="char__create">Crear personaje</button>            
         </form>
     </div>
 

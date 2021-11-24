@@ -17,10 +17,21 @@ window.addEventListener('load',()=>{
     document.getElementById('enemy__name').innerHTML += enemy.getName();
     document.getElementById('enemy__current__HP').innerHTML = `Salud: ${enemy.getHp()} / ${enemy.getMaxHp()}`;  
     
+    document.getElementById('loginBtn').addEventListener('click',(e)=>{
+        e.preventDefault();
+        clearLogin();
+        showCharacterCreation();
+    });
 
-    
-    
+    document.getElementById('char__create').addEventListener('click',(e)=>{
+        e.preventDefault();
+        clearCharacterCreation();
+        showMainUI();
+        
+    })
+
     hitButton.addEventListener('click', ()=>{
+        
         player.attack(enemy);
         console.log(enemy.getAliveStatus());
         if(!enemy.getAliveStatus()) {
@@ -30,18 +41,13 @@ window.addEventListener('load',()=>{
         }
     });
 
-    /*
-    setInterval(()=>{
-        enemy.attack(player);
-    },1000);
- */
     updatePlayerHP();
-    document.getElementById('flee__button').addEventListener('click',clearTerminal)
+    document.getElementById('flee__button').addEventListener('click',cleanTerminal)
     document.getElementById('use__potion').addEventListener('click',()=>{
         player.usePotion();
     });
 })
 
-function clearTerminal(){
+function cleanTerminal(){
     log.value="";
 }
