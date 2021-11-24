@@ -107,7 +107,7 @@ class Player {
             if (player.hp > player.maxHp) {
                 player.hp = player.maxHp;
                 log.value+=" Tu salud está al máximo\n";     
-                log.value += `Te quedan un total de ${this.potionCounter} pociones.`               
+                log.value += `Te quedan un total de ${this.potionCounter} pociones.\n`               
             } else {
                 log.value+="\n";
             }

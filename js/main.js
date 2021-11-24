@@ -17,10 +17,7 @@ window.addEventListener('load',()=>{
     document.getElementById('enemy__name').innerHTML += enemy.getName();
     document.getElementById('enemy__current__HP').innerHTML = `Salud: ${enemy.getHp()} / ${enemy.getMaxHp()}`;  
     
-    document.getElementById('hit_harder__button').addEventListener('click',()=>{
-        startCombat(player, enemy);
-        console.log("patata")
-    })
+
     
     
     hitButton.addEventListener('click', ()=>{

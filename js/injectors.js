@@ -1,7 +1,17 @@
+
+
 window.addEventListener('load',()=>{
-  loginInjection();
-  createCharacterInjector();
+  
 })
+
+function combatInjection(){
+  const element = document.getElementById("combat__menu");
+  fetch("./combat.html").then(file => {
+      file.text().then(content => {
+          element.innerHTML = content;
+      })
+  })
+}
 
 function loginInjection(){
   const element = document.getElementById("changing__div");

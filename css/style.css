@@ -7,3 +7,7 @@ textarea {
     height: 200px;
     resize: none;    
 }
+
+#terminal__id {
+    text-align: center;
+}
