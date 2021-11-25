@@ -25,11 +25,11 @@ function updateExp(){
 }
 
 function updateStamina(){
-    document.getElementById('statistics__stamina').innerHTML = `Resistencia: ${enemy.getStamina()} / ${enemy.getMaxStamina()}`;
+    document.getElementById('statistics__stamina').innerHTML = `Resistencia: ${player.getStamina()} / ${player.getMaxStamina()}`;
 }
 
 function updateEssence(){
-    document.getElementById('statistics__essence').innerHTML = `Esencia: ${enemy.getEssence()} / ${enemy.getMaxEssence()}`;
+    document.getElementById('statistics__essence').innerHTML = `Esencia: ${player.getEssence()} / ${player.getMaxEssence()}`;
 }
 
 function clearLog(){

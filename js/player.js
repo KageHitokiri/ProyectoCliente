@@ -107,12 +107,14 @@ class Player {
 
 
     attack(target) { 
+        let damage = this.damage
         let hpLose = target.getHp(); 
-        hpLose -= this.damage;  
+        hpLose -= damage;  
         target.setHp(hpLose);
-        updatePlayerHP();
-        updateEnemyHP();
-        printDamage(this.damage,target.getName());  
+        updatePlayerData();
+        updateEnemyData();
+        log.value+=`Atacas al ${enemy.getName()}\n`
+        printDamage(damage,target.getName());  
 
         if (target.getHp()<=0) {
             target.kill();
@@ -123,6 +125,33 @@ class Player {
                 console.log(target.getAliveStatus());
             }
         } 
+    }
+
+    strongAttack(target) {
+
+        if (this.essence<=0) {
+            log.value+=`No tienes suficiente esencia para esto\n`; 
+        } else {
+            this.essence--;
+            let damage = this.damage*2
+            let hpLose = target.getHp(); 
+            hpLose -= damage;  
+            target.setHp(hpLose);
+            updatePlayerData();
+            updateEnemyData();
+            log.value+=`Atacas la ${enemy.getName()} con un ataque potente!\n`
+            printDamage(damage,target.getName());  
+
+            if (target.getHp()<=0) {
+                target.kill();
+                log.value+=`${target.getName()} ha caido.\n`;
+                if (typeof(target==Enemy)) {
+                    target.lootMessage();
+                    target.lootEnemy(this);
+                    console.log(target.getAliveStatus());
+                }
+            } 
+        }
     }
 
     usePotion(){    
@@ -144,7 +173,7 @@ class Player {
         } else {
             log.value+="No te quedan pociones\n";
         }
-        printPlayerHP();
+        updatePlayerHP();
     }
 
 
@@ -173,25 +202,14 @@ class Enemy extends Player {
     }
     
     attack(target) { 
+        let damage = this.damage;
         let hpLose = target.getHp(); 
-        hpLose -= this.damage;  
+        hpLose -= damage;  
         target.setHp(hpLose);
-        updatePlayerHP();
-        updateEnemyHP();
-        printDamage(this.damage,target.getName());              
-    }
-
-    enemyAttack(target){
-        console.log("dentro de ataque");
-        if (this.isAliveStatus) {
-            console.log("Al fondo");
-            setInterval(()=>{
-                this.attack(target)
-            },this.attackTime);
-        } else {
-            console.log("tamuerto");
-        }
-        
+        log.value+=`El ${this.name} te ataca\n`;
+        updatePlayerData();
+        updateEnemyData();
+        printDamage(damage,target.getName());              
     }
 
     lootEnemy(player){
