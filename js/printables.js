@@ -2,6 +2,10 @@ function updatePlayerHP(){
     document.getElementById('statistics__currentHP').innerHTML = `Salud: ${player.getHp()} / ${player.getMaxHp()}`;
 }
 
+function updateEnemyName(){
+    document.getElementById('enemy__name').innerHTML = `Nombre: ${enemy.getName()}`;
+}
+
 function updateEnemyHP(){
     document.getElementById('enemy__current__HP').innerHTML = `Salud: ${enemy.getHp()} / ${enemy.getMaxHp()}`;
 }
@@ -39,4 +43,9 @@ function updatePlayerData(){
     updateGold();
     updateExp();
     updatePotions();
+}
+
+function updateEnemyData(){
+    updateEnemyName();
+    updateEnemyHP();
 }

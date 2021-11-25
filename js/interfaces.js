@@ -1,14 +1,15 @@
 'use strict'
 
 window.addEventListener('load',()=>{
-
+    clearUI();
+    showLogin();
 })
 
-function clearLogin() {
-    document.getElementById('login').style.display="none";    
+function clearLogin(){
+    document.getElementById('login').style.display="none";
 }
-function showLogin() {
-    document.getElementById('login').style.display="block";    
+function showLogin(){
+    document.getElementById('login').style.display="block";
 }
 
 function clearGameSelector(){
@@ -46,6 +47,14 @@ function showTravelMenu(){
     document.getElementById('travel__menu').style.display="block";
 }
 
+function clearEnemiesMenu(){
+    document.getElementById('enemies__menu').style.display="none";
+}
+function showEnemiesMenu(){
+    document.getElementById('enemies__menu').style.display="block";
+}
+
+
 function clearCombatMenu(){
     document.getElementById('combat__menu').style.display="none";    
 }
@@ -64,17 +73,24 @@ function clearTerminal(){
     document.getElementById('terminal__id').style.display="none";    
 }
 function showTerminal(){
-    document.getElementById('terminal__id').style.display="block";    
+    document.getElementById('terminal__id').style.display="block"; 
 }
 
 function showMainUI(){
     showPlayerSatistics();
     showTerminal();
+    showCityMenu();
 }
-
+function startCombatUI(){
+    updateEnemyData();   
+    clearEnemiesMenu();    
+    showCombatMenu();
+    showEnemyStatics();
+}
 function endCombatUI(){
     showTravelMenu();
     clearCombatMenu();
+    clearEnemiesMenu();
 }
 
 function clearUI(){
@@ -82,7 +98,8 @@ function clearUI(){
     clearGameSelector();
     clearCharacterCreation();
     clearPlayerSatistics();
-    clearEnemyStatics()
+    clearEnemiesMenu();
+    clearEnemyStatics();
     clearCityMenu();
     clearTravelMenu();
     clearCombatMenu();
