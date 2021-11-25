@@ -1,10 +1,5 @@
 'use strict'
 
-window.addEventListener('load',()=>{
-    clearUI();
-    showLogin();
-})
-
 function clearLogin(){
     document.getElementById('login').style.display="none";
 }
@@ -54,7 +49,6 @@ function showEnemiesMenu(){
     document.getElementById('enemies__menu').style.display="block";
 }
 
-
 function clearCombatMenu(){
     document.getElementById('combat__menu').style.display="none";    
 }
@@ -74,6 +68,12 @@ function clearTerminal(){
 }
 function showTerminal(){
     document.getElementById('terminal__id').style.display="block"; 
+}
+
+function gameStart(){
+    clearUI();    
+    showLogin();
+    startScript();
 }
 
 function showMainUI(){

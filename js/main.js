@@ -8,7 +8,7 @@ window.addEventListener('load',()=>{
     let fleeButton = document.getElementById('flee__button');
     let usePotionButton = document.getElementById('use__potion');
 
-
+    gameStart();
     document.getElementById('statistics__name').innerHTML += player.getName();    
     updatePlayerHP();
     updateStamina();
@@ -30,18 +30,21 @@ window.addEventListener('load',()=>{
         clearLogin();
         showGameSelector();        
     })
+
     //Botones de modo
     document.getElementById('newGame').addEventListener('click',()=>{
         clearGameSelector();
         showCharacterCreation();
     })
+
     document.getElementById('loadGame').addEventListener('click',()=>{
         clearGameSelector();
         showMainUI();
     })    
+
     //Botones de ciudad
     document.getElementById('city__shop').addEventListener('click',()=>{
-        log.value+="Las tiendas están cerradas\n";
+        log.value+="Los comerciantes se niegan a negociar contigo\n";
     })
 
     document.getElementById('raid').addEventListener('click',()=>{
@@ -73,8 +76,8 @@ window.addEventListener('load',()=>{
     })
 
     document.getElementById('travel__rest').addEventListener('click',()=>{
-        log.value+=
-        `No puedes acampar aquí`;
+        log.value+=`Pasas la noche al raso, descansas algo, pero notas que no estás totalmente recuperado`;
+        player.restore();
     })
     
     //Botones de creación de enemigos
@@ -121,7 +124,9 @@ window.addEventListener('load',()=>{
             }
         } 
     })
-        
+    /*
+    Actualmente el enemigo no reacciona cuando huyes o cuando utilizas una poción, esto cambiará más adelante, ya que la idea principal es que todos los botones de interacción en combate impliquen una respuesta por parte del enemigo.  
+    */      
     fleeButton.addEventListener('click',()=>{
         endCombatUI();            
     })

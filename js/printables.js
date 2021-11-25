@@ -35,6 +35,13 @@ function updateEssence(){
 function clearLog(){
     log.value="";
 }
+//En función del trasfondo, este será el script inicial
+function startScript(){
+    if (true) {
+        log.value=`Tras recibir una brutal paliza, te despiertas en una ciudad que no conoces de nada.
+        No recuerdas nada, y no entiendes por qué tienes un arma, lo único que sabes es que descansar es posiblemente tu mejor opción.\n`;
+    }
+}
 
 function updatePlayerData(){
     updatePlayerHP();

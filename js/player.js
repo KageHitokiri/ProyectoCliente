@@ -1,5 +1,4 @@
 class Player {   
-
     constructor(name, maxHp, damage) {
         this.name = name;
         this.maxHp = maxHp;
@@ -117,7 +116,6 @@ class Player {
         updatePlayerData();
     }
 
-
     attack(target) { 
         let damage = this.damage
         let hpLose = target.getHp(); 
@@ -187,8 +185,6 @@ class Player {
         }
         updatePlayerHP();
     }
-
-
 }
 
 class Enemy extends Player {
