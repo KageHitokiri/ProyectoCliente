@@ -11,3 +11,8 @@ textarea {
 #terminal__id {
     text-align: center;
 }
+
+button{
+    padding:5px;
+    border-radius: 10px;
+}

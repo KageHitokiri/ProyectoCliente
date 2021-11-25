@@ -11,69 +11,141 @@
     
     <script src="js/interfaces.js"></script>
     <script src="js/player.js"></script>
-    <script src="js/combat.js"></script>
     <script src="js/main.js"></script>    
     <script src="js/printables.js"></script>
-    
-    
  
 </head>
 <body>
-    <h1 id="h1__name">DicePals</h1>
-
-    <div id="login" class="col-3 border border-dark">
-        <form>
-            <input type="text"/>
-            <label>Usuario</label><br>
-            <input type="password"/>
-            <label>Contraseña</label><br>
-            <input id="loginBtn" type="submit" value="Enviar"><br>
-        </form>
+    <div class="container">
+        <div class="row">
+            <h1 id="h1__name">DicePals</h1>        
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div id="login" class="col-4 border border-dark">
+                <form>
+                    <input type="text"/>
+                    <label>Usuario</label><br>
+                    <input type="password"/>
+                    <label>Contraseña</label><br>                    
+                    <button id="loginBtn">Log in</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <div id="form__characterCreation" class="col-3 border border-dark">
-        <form>
-            <label>Nombre:</label><br>
-            <input type="text" id="char__name" placeholder="Name"><br>    
-            <label>Elige tu raza: </label><br>
-            <select name="char__race" id="char__race">        
-                <option value="race__human">Humano</option>
-                <option value="race__elf">Elfo</option>
-                <option value="race__dwarf">Enano</option>   
-            </select><br>
+    <div class="container">
+        <div class="row">            
+            <div id="gameSelector" class="col-4">
+                <button id="newGame">Partida nueva</button>
+                <button id="loadGame" >Cargar Partida</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div id="form__characterCreation" class="col-4 border border-dark">
+                <form>
+                    <label>Nombre:</label><br>
+                    <input type="text" id="char__name" placeholder="Name"><br>    
+                    <label>Elige tu raza: </label><br>
+                    <select name="char__race" id="char__race">        
+                        <option value="race__human">Humano</option>
+                        <option value="race__elf">Elfo</option>
+                        <option value="race__dwarf">Enano</option>   
+                    </select><br>
+                    <label>Elige tu arma: </label><br>
+                    <select name="char__weapon" id="char__weapon">        
+                        <option value="weapon__sword">Espada</option>
+                        <option value="weapon__axe">Hacha</option>
+                        <option value="weapon__mace">Maza</option>           
+                    </select><br>
+                
+                    <br>
+                    <button id="char__create">Crear personaje</button>            
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div id="player__statics" class="col-4 border border-dark" >    
+                <p>Estadísticas</p>
+                <p id='statistics__name'></p>
+                <p id="statistics__currentHP"></p>
+                <p id="statistics__stamina"></p>
+                <p id="statistics__essence"></p>
+                <p id='statistics__current__XP'></p>
+                <p id="statistics__current__Gold"></p>
+                <p id="statistics__current__Potions"></p>        
+            </div>
+        </div>
+    </div>
             
-            <label>Elige tu arma: </label><br>
-            <select name="char__weapon" id="char__weapon">        
-                <option value="weapon__sword">Espada</option>
-                <option value="weapon__axe">Hacha</option>
-                <option value="weapon__mace">Maza</option>           
-            </select><br>
-        
-            <br>
-            <button id="char__create">Crear personaje</button>            
-        </form>
+    <div class="container">
+        <div class="row">
+            <div id="enemy__statics">
+                <p id="enemy__name"></p>
+                <p id="enemy__current__HP"></p>
+            </div>
+        </div>
+    </div>  
+
+    <div class="container">
+        <div class="row">
+            <div id="city__menu">
+                <p>Acciones de ciudad</p>
+                <button id="city__shop">Buscar tienda</button>
+                <button id="raid">Salir de incursión</button>
+            </div>
+        </div>
     </div>
 
-    <div id="player__statics" class="col-3 border border-dark" >    
-        <p>Estadísticas</p>
-        <p id='statistics__name'></p>
-        <p id="statistics__currentHP"></p>
-        <p id='statistics__current__XP'></p>
-        <p id="statistics__current__Gold"></p>
-        <p id="statistics__current__Potions"></p>
-        <p id="enemy__name"></p>
-        <p id="enemy__current__HP"></p>
+    <div class="container">
+        <div class="row">
+            <div id="travel__menu">
+                <p>Acciones de viaje</p>
+                <button id="back__to__city">Volver a la ciudad</button>
+                <button id="find__combat">Buscar enemigos</button>
+                <button id="travel__rest">Descansar</button>
+            </div>
+        </div>
     </div>
-    <div id="combat__menu">
-        <p>Acciones de combate:</p>
-        <button id="hit__button">Pegar</button>
-        <button id="hit_harder__button">Pegar fuerte</button>
-        <button id="flee__button">Huír</button>
-        <button id="use__potion">Usar poción</button>
+
+    <div class="container">
+        <div class="row">
+            <div id="combat__menu">
+                <p>Acciones de combate:</p>
+                <button id="hit__button">Pegar</button>
+                <button id="hit_harder__button">Pegar fuerte</button>
+                <button id="flee__button">Huír</button>
+                <button id="use__potion">Usar poción</button>
+            </div>
+        </div>
     </div>
-    <div id="terminal__id" class="col-3 border border-dark">
-        <textarea id="log"></textarea>
+
+    <div class="container">
+        <div class="row">
+            <div id="terminal__id" class="col-4 border border-dark">
+                <textarea id="log"></textarea>
+            </div>
+        </div>
     </div>
-    <script src="js/injectors.js"></script>
+
+
+
+    <div class="container">
+        <div class="row">
+            <footer>
+                <hr>
+                <p>Carlos Ramos Iserte - 2021</p>
+            </footer>
+        </div>
+    </div>
+    
 </body>
 </html>

@@ -5,6 +5,10 @@ class Player {
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.damage = damage;
+        this.maxStamina =20;
+        this.stamina = this.maxStamina;
+        this.maxEssence = 5;
+        this.essence = this.maxEssence;
         this.exp = 0;
         this.gold = 0;
         this.potionCounter = 1;
@@ -30,6 +34,32 @@ class Player {
     }
     setDamage(value){
         this.damage = value;
+    }
+
+    getMaxStamina(){
+        return this.maxStamina;
+    }
+    setMaxStamina(value){
+        this.maxStamina = value;
+    }
+    getStamina(){
+        return this.stamina;
+    }
+    setStamina(value){
+        this.stamina = value;        
+    }
+
+    getMaxEssence(){
+        return this.maxEssence;
+    }
+    setMaxEssence(value){
+        this.maxEssence = value;
+    }
+    getEssence(){
+        return this.essence;
+    } 
+    setEssence(value){
+        this.essence = value;
     }
 
     getPotions(){
