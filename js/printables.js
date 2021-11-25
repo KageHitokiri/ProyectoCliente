@@ -38,8 +38,8 @@ function clearLog(){
 //En función del trasfondo, este será el script inicial
 function startScript(){
     if (true) {
-        log.value=`Tras recibir una brutal paliza, te despiertas en una ciudad que no conoces de nada.
-        No recuerdas nada, y no entiendes por qué tienes un arma, lo único que sabes es que descansar es posiblemente tu mejor opción.\n`;
+        log.value=`Te despiertas dolorido, notas lo que crees son los resultados de una brutal paliza.
+        No recuerdas nada, y no entiendes por qué tienes un arma, pese a no tener nada roto, crees que descansar es posiblemente tu mejor opción.\n`;
     }
 }
 
