@@ -3,14 +3,14 @@ class Player {
     constructor(name, maxHp, damage) {
         this.name = name;
         this.maxHp = maxHp;
-        this.hp = maxHp;
+        this.hp = 5;
         this.damage = damage;
         this.maxStamina =20;
-        this.stamina = this.maxStamina;
+        this.stamina = 4;
         this.maxEssence = 5;
-        this.essence = this.maxEssence;
+        this.essence = 3;
         this.exp = 0;
-        this.gold = 0;
+        this.gold = 10;
         this.potionCounter = 1;
         this.isAliveStatus = true;
     }
@@ -103,6 +103,18 @@ class Player {
     }
     raise(){
         this.isAliveStatus = true;
+    }
+
+    restore(){
+        this.hp=this.maxHp;
+        this.stamina=this.maxStamina;
+        updatePlayerData();        
+    }
+
+    fullRestore(){
+        this.restore();
+        this.essence = this.maxEssence;
+        updatePlayerData();
     }
 
 

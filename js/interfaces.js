@@ -90,7 +90,7 @@ function startCombatUI(){
 function endCombatUI(){
     showTravelMenu();
     clearCombatMenu();
-    clearEnemiesMenu();
+    clearEnemyStatics();
 }
 
 function clearUI(){

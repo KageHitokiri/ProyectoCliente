@@ -28,17 +28,53 @@ window.addEventListener('load',()=>{
     document.getElementById('loginBtn').addEventListener('click',(e)=>{
         e.preventDefault();
         clearLogin();
-        showMainUI();        
+        showGameSelector();        
     })
+    //Botones de modo
+    document.getElementById('newGame').addEventListener('click',()=>{
+        clearGameSelector();
+        showCharacterCreation();
+    })
+    document.getElementById('loadGame').addEventListener('click',()=>{
+        clearGameSelector();
+        showMainUI();
+    })    
     //Botones de ciudad
+    document.getElementById('city__shop').addEventListener('click',()=>{
+        log.value+="Las tiendas están cerradas\n";
+    })
+
     document.getElementById('raid').addEventListener('click',()=>{
         clearCityMenu();
         showTravelMenu();
     })
-    //Botones de viaje
+
+    document.getElementById('city__inn').addEventListener('click',()=>{        
+        if (player.getGold()>=10){
+            player.addGold(-10)            
+            log.value+=
+            "El posadero te cobra 10 monedas de oro por descansar.\n"+
+            "¡Te recuperas por completo!\n";
+            player.fullRestore();
+        } else {
+            log.value+=`No puedes permitirte este servicio\n`;
+        }
+    })
+
+    //Botones de viaje    
+    document.getElementById('back__to__city').addEventListener('click',()=>{
+        clearTravelMenu();
+        showCityMenu();
+    })
+
     document.getElementById('find__combat').addEventListener('click',()=>{
         clearTravelMenu();
         showEnemiesMenu();
+    })
+
+    document.getElementById('travel__rest').addEventListener('click',()=>{
+        log.value+=
+        `No puedes acampar aquí`;
     })
     
     //Botones de creación de enemigos
@@ -93,38 +129,5 @@ window.addEventListener('load',()=>{
     usePotionButton.addEventListener('click',()=>{
         player.usePotion();
     });
-/*
-    
-
-    
-
-    
-
-    document.getElementById('loginBtn').addEventListener('click',()=>{
-        
-    })
-
-    document.getElementById('loginBtn').addEventListener('click',()=>{
-        
-    })
-
-    document.getElementById('loginBtn').addEventListener('click',()=>{
-        
-    })
-
-    document.getElementById('loginBtn').addEventListener('click',()=>{
-        
-    })
-
-    document.getElementById('loginBtn').addEventListener('click',()=>{
-        
-    })
-
-    document.getElementById('loginBtn').addEventListener('click',()=>{
-        
-    })
-*/
-    
-    
 })
 
