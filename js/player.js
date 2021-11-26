@@ -131,8 +131,7 @@ class Player {
             log.value+=`${target.getName()} ha caido.\n`;
             if (typeof(target==Enemy)) {
                 target.lootMessage();
-                target.lootEnemy(this);
-                console.log(target.getAliveStatus());
+                target.lootEnemy(this);                
             }
         } 
     }

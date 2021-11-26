@@ -42,6 +42,13 @@ window.addEventListener('load',()=>{
         showMainUI();
     })    
 
+    //Botones de creación de personaje
+    document.getElementById('char__create').addEventListener('click',(e)=>{
+        e.preventDefault();
+        clearCharacterCreation();
+        showMainUI();
+    })
+
     //Botones de ciudad
     document.getElementById('city__shop').addEventListener('click',()=>{
         log.value+="Los comerciantes se niegan a negociar contigo\n";
@@ -135,4 +142,3 @@ window.addEventListener('load',()=>{
         player.usePotion();
     });
 })
-
