@@ -1,5 +1,6 @@
 let player = new Player("Your Name Here",15,5);
 let enemy = new Enemy("Enemy Name",20,3, 2500, 1, 25, 20);
+let data = new Data();
 
 window.addEventListener('load',()=>{        
     let log = document.getElementById('log');
@@ -10,6 +11,7 @@ window.addEventListener('load',()=>{
 
     gameStart();
     document.getElementById('statistics__name').innerHTML += player.getName();    
+    
     updatePlayerHP();
     updateStamina();
     updateEssence();
@@ -25,15 +27,14 @@ window.addEventListener('load',()=>{
     })
 
     //Botones de login       
-    document.getElementById('loginBtn').addEventListener('click',(e)=>{
-        e.preventDefault();
-        clearLogin();
-        showGameSelector();        
+    document.getElementById('loginBtn').addEventListener('click',(e)=>{        
+        logInValidator(e);          
     })
 
     //Botones de modo
     document.getElementById('newGame').addEventListener('click',()=>{
         clearGameSelector();
+        writeUserName();
         showCharacterCreation();
     })
 

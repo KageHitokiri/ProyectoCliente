@@ -9,11 +9,13 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>    
     
+    <script src="js/Data.js"></script>
     <script src="js/interfaces.js"></script>
-    <script src="js/player.js"></script>
-    <script src="js/main.js"></script>    
-    <script src="js/printables.js"></script>
- 
+    <script src="js/player.js"></script>      
+    <script src="js/printables.js"></script>    
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>  
+
 </head>
 <body>
     <div class="container">
@@ -26,9 +28,9 @@
         <div class="row">
             <div id="login" class="col-4 border border-dark">
                 <form>
-                    <input type="text"/>
+                    <input type="text" id="form__name"/>
                     <label>Usuario</label><br>
-                    <input type="password"/>
+                    <input type="password" id="form__password"/>
                     <label>Contraseña</label><br>                    
                     <button id="loginBtn">Log in</button>
                 </form>
@@ -74,6 +76,7 @@
     <div class="container">
         <div class="row">
             <div id="player__statics" class="col-4 border border-dark" >    
+                <p id="playerName"></p>
                 <p>Estadísticas</p>
                 <p id='statistics__name'></p>
                 <p id="statistics__currentHP"></p>
