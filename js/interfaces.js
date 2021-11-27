@@ -73,7 +73,6 @@ function showTerminal(){
 function gameStart(){
     clearUI();    
     showLogin();
-    startScript();
 }
 
 function showMainUI(){

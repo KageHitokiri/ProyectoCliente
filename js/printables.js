@@ -44,11 +44,11 @@ function clearLog(){
     log.value="";
 }
 //En función del trasfondo, este será el script inicial
-function startScript(){
-    if (true) {
-        log.value=`Te despiertas dolorido, notas lo que crees son los resultados de una brutal paliza.
-        No recuerdas nada, y no entiendes por qué tienes un arma, pese a no tener nada roto, crees que descansar es posiblemente tu mejor opción.\n`;
-    }
+function startScript(){    
+    log.value=`Te despiertas dolorido, notas lo que crees son los resultados de una brutal paliza.
+    "Sucio ${data.getPlayerRace()}", escuchas decir a alguien en el callejón que tienes detrás, mientras sale corriendo.
+    No recuerdas nada, y no entiendes por qué tienes un arma, una ${data.getPlayerWeapon()}, pese a no tener nada roto, crees que descansar es posiblemente tu mejor opción.\n`;
+    
 }
 
 function updatePlayerData(){

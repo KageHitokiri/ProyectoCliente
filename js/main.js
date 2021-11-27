@@ -52,7 +52,7 @@ window.addEventListener('load',()=>{
 
     //Botones de ciudad
     document.getElementById('city__shop').addEventListener('click',()=>{
-        log.value+="Los comerciantes se niegan a negociar contigo\n";
+        log.value+="Los comerciantes se niegan a comerciar contigo\n";
     })
 
     document.getElementById('raid').addEventListener('click',()=>{
@@ -62,14 +62,19 @@ window.addEventListener('load',()=>{
 
     document.getElementById('city__inn').addEventListener('click',()=>{        
         if (player.getGold()>=10){
-            player.addGold(-10)            
-            log.value+=
-            "El posadero te cobra 10 monedas de oro por descansar.\n"+
-            "¡Te recuperas por completo!\n";
-            updateGold();
-            player.fullRestore();
-            player.uploadPlayerData();
-            log.value+="Se han guardado los datos";
+            if ((player.getHp()===player.getMaxHp()) && (player.getStamina === player.getMaxStamina) && (player.getEssence===player.getMaxEssence())) {
+                console.log("Test");
+            } else {
+                player.addGold(-10)            
+                log.value+=
+                "El posadero te cobra 10 monedas de oro por descansar.\n"+
+                "¡Te recuperas por completo!\n";
+                updateGold();
+                player.fullRestore();
+                player.uploadPlayerData();
+                log.value+="Se han guardado los datos\n";
+            }
+            
         } else {
             log.value+=`No puedes permitirte este servicio\n`;
         }

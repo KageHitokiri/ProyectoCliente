@@ -22,7 +22,7 @@ function logInValidator(e){
         data.setUserName(formName.value);
         data.setPassword(formPassword.value);        
         clearLogin();
-        showGameSelector(); 
+        showGameSelector();         
     }
 }
 
@@ -64,6 +64,7 @@ function characterValidation(e){
                
         player.setName(data.getPlayerName());
         data.uploadUserData();
+        startScript();
         clearCharacterCreation();
         showMainUI();
     }
