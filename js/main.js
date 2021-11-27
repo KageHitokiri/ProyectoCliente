@@ -9,9 +9,7 @@ window.addEventListener('load',()=>{
     let fleeButton = document.getElementById('flee__button');
     let usePotionButton = document.getElementById('use__potion');
 
-    gameStart();
-    document.getElementById('statistics__name').innerHTML += player.getName();    
-    
+    gameStart();    
     updatePlayerHP();
     updateStamina();
     updateEssence();
@@ -28,26 +26,28 @@ window.addEventListener('load',()=>{
 
     //Botones de login       
     document.getElementById('loginBtn').addEventListener('click',(e)=>{        
-        logInValidator(e);          
+        logInValidator(e);
+        storageCheck();          
     })
 
     //Botones de modo
     document.getElementById('newGame').addEventListener('click',()=>{
-        clearGameSelector();
-        writeUserName();
+        clearGameSelector();        
         showCharacterCreation();
     })
 
     document.getElementById('loadGame').addEventListener('click',()=>{
         clearGameSelector();
-        showMainUI();
+        data.downloadUserData();
+        player.downloadPlayerData();
+        updatePlayerData();
+        showMainUI();        
     })    
 
     //Botones de creación de personaje
     document.getElementById('char__create').addEventListener('click',(e)=>{
-        e.preventDefault();
-        clearCharacterCreation();
-        showMainUI();
+        characterValidation(e);
+        updatePlayerName();
     })
 
     //Botones de ciudad
@@ -66,7 +66,10 @@ window.addEventListener('load',()=>{
             log.value+=
             "El posadero te cobra 10 monedas de oro por descansar.\n"+
             "¡Te recuperas por completo!\n";
+            updateGold();
             player.fullRestore();
+            player.uploadPlayerData();
+            log.value+="Se han guardado los datos";
         } else {
             log.value+=`No puedes permitirte este servicio\n`;
         }

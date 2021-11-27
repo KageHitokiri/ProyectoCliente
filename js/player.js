@@ -16,9 +16,14 @@ class Player {
         this.isAliveStatus = true;
     }
 
+    
     getName() {
         return this.name;
     }
+    setName(value) {
+        this.name = value;
+    }
+
     getMaxHp(){
         return this.maxHp;
     }
@@ -185,6 +190,41 @@ class Player {
             log.value+="No te quedan pociones\n";
         }
         updatePlayerHP();
+    }
+
+    uploadPlayerData(){
+        let dataToUpload = {
+            name : player.getName(),
+            maxHp : player.getMaxHp(),
+            hp : player.getHp(),
+            damage : player.getDamage(),
+            maxStamina : player.getMaxStamina(),
+            stamina : player.getStamina(),
+            maxEssence : player.getMaxEssence(),
+            essence : player.getEssence(),
+            exp : player.getExp(),
+            gold : player.getGold(),
+            potionCounter : player.getPotions(),
+            log: "Amanece un nuevo día.\n"
+        }
+
+        localStorage.setItem("PlayerData", JSON.stringify(dataToUpload));
+    }
+
+    downloadPlayerData(){
+        let downloadedData = JSON.parse(localStorage.getItem("PlayerData"));
+        this.name = downloadedData.name;
+        this.maxHp = downloadedData.maxHp;
+        this.hp = downloadedData.hp;
+        this.damage = downloadedData.damage;
+        this.maxStamina =downloadedData.maxStamina;
+        this.stamina = downloadedData.stamina;
+        this.maxEssence = downloadedData.maxEssence;
+        this.essence = downloadedData.essence;
+        this.exp = downloadedData.exp;
+        this.gold = downloadedData.gold;
+        this.potionCounter = downloadedData.potionCounter;
+        log.value = downloadedData.log;
     }
 }
 

@@ -77,6 +77,8 @@ function gameStart(){
 }
 
 function showMainUI(){
+    writeUserName();
+    updatePlayerName();
     showPlayerSatistics();
     showTerminal();
     showCityMenu();

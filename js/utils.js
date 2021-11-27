@@ -1,9 +1,6 @@
 'use strict'
 
-
-//función para sanitizar inputs
-//función para validar login
-//función para validar creación de personaje
+//falta la función para sanitizar inputs
 function logInValidator(e){
     let formName = document.getElementById('form__name');
     let formPassword = document.getElementById('form__password');
@@ -33,7 +30,7 @@ function characterValidation(e){
     let formName = document.getElementById('char__name');
     let formRace = document.getElementById('char__race');
     let formWeapon = document.getElementById('char__weapon');
-    let flag = false;
+    let flag = false;    
 
     e.preventDefault();
 
@@ -42,5 +39,38 @@ function characterValidation(e){
         flag = true;
     }
 
+    if (!flag) {
+        data.setPlayerName(formName.value);
+        
+        if (formRace.value==="race__human") {
+            data.setPlayerRace("Humano");                    
+        }
+        if (formRace.value==="race__elf") {
+            data.setPlayerRace("Elfo");
+        }  
+        if (formRace.value==="race__dwarf") {
+            data.setPlayerRace("Enano");
+        }                              
+       
+        if (formWeapon.value==="weapon__sword") {
+            data.setPlayerWeapon("Espada");
+        }
+        if (formWeapon.value==="weapon__axe") {
+            data.setPlayerWeapon("Hacha");
+        }  
+        if (formWeapon.value==="weapon__mace") {
+            data.setPlayerWeapon("Maza");
+        }                              
+               
+        player.setName(data.getPlayerName());
+        data.uploadUserData();
+        clearCharacterCreation();
+        showMainUI();
+    }
+}
 
+function storageCheck(){
+    if (!localStorage.getItem("UserData")) {
+        document.getElementById('loadGame').disabled=true;
+    }
 }

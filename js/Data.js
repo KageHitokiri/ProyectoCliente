@@ -45,11 +45,27 @@ class Data {
     }
 
     //función para guardar datos al local storage
-    uploadData(){
+    uploadUserData(){
+        let dataToUpload = {
+            userName    : data.getUserName(),
+            password    : data.getPassword(),
+            playerName  : data.getPlayerName(),
+            playerRace  : data.getPlayerRace(),
+            playerWeapon: data.getPlayerWeapon()
+        }
 
+        localStorage.setItem("UserData", JSON.stringify(dataToUpload));
     }
     //Función para cargar datos del local Storage
-    downloadData(){
+    downloadUserData(){        
+        let downloadedData = JSON.parse(localStorage.getItem("UserData"));
+        this.playerName = downloadedData.playerName;
+        this.playerRace = downloadedData.playerRace;
+        this.playerWeapon = downloadedData.playerWeapon;
+    }
 
+    clearData(){
+        localStorage.clear();
     }
 }
+

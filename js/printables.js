@@ -2,6 +2,10 @@ function writeUserName() {
     document.getElementById('playerName').innerHTML = `Bienvenido, ${data.getUserName()}`;
 }
 
+function updatePlayerName(){
+    document.getElementById('statistics__name').innerHTML = `${player.getName()}`;
+}
+
 function updatePlayerHP(){
     document.getElementById('statistics__currentHP').innerHTML = `Salud: ${player.getHp()} / ${player.getMaxHp()}`;
 }
