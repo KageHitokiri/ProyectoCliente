@@ -2,8 +2,7 @@
 
 class Data {
     constructor(){
-        this.userName = "";
-        this.password = "";
+        this.userName = "";        
         this.playerName ="";
         this.playerRace ="";
         this.playerWeapon ="";
@@ -14,13 +13,6 @@ class Data {
     }
     setUserName(value) {
         this.userName = value
-    }
-
-    getPassword (){
-        return this.password;
-    }
-    setPassword(value) {
-        this.password = value
     }
 
     getPlayerName (){
@@ -48,7 +40,6 @@ class Data {
     uploadUserData(){
         let dataToUpload = {
             userName    : data.getUserName(),
-            password    : data.getPassword(),
             playerName  : data.getPlayerName(),
             playerRace  : data.getPlayerRace(),
             playerWeapon: data.getPlayerWeapon()
@@ -68,4 +59,3 @@ class Data {
         localStorage.clear();
     }
 }
-

@@ -19,8 +19,7 @@ function logInValidator(e){
     }
 
     if (!flag) {
-        data.setUserName(formName.value);
-        data.setPassword(formPassword.value);        
+        data.setUserName(formName.value);       
         clearLogin();
         showGameSelector();         
     }
