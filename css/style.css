@@ -10,9 +10,44 @@ textarea {
 
 #terminal__id {
     text-align: center;
+    padding:5px
+}
+
+#player__statics{
+    margin: 0px 5px 0px 0px;
+    padding: 5px;
+}
+
+#enemy__statics{
+    margin: 0px 5px 0px 0px;
+    padding: 5px;
+}
+
+#city__menu{
+    margin: 5px 0px;
+    padding: 5px;
+}
+
+#travel__menu{
+    margin: 5px 0px;
+    padding: 5px;
+}
+
+#enemies__menu{
+    margin: 5px 0px;
+    padding: 5px;
+}
+
+#combat__menu{
+    margin: 5px 0px;
+    padding: 5px;
 }
 
 button{
     padding:5px;
     border-radius: 10px;
+}
+
+footer{
+    text-align: center;
 }

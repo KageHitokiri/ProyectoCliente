@@ -9,7 +9,7 @@ window.addEventListener('load',()=>{
     let fleeButton = document.getElementById('flee__button');
     let usePotionButton = document.getElementById('use__potion');
 
-    gameStart();    
+    gameStart();   
     updatePlayerHP();
     updateStamina();
     updateEssence();

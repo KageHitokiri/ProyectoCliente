@@ -7,7 +7,7 @@ function updatePlayerName(){
 }
 
 function updatePlayerHP(){
-    document.getElementById('statistics__currentHP').innerHTML = `Salud: ${player.getHp()} / ${player.getMaxHp()}`;
+    document.getElementById('statistics__currentHP').innerHTML = `<b>Salud</b>: <span class="hpColor">${player.getHp()}</span> / <span class="hpColor">${player.getMaxHp()}</span>`;
 }
 
 function updateEnemyName(){
@@ -26,18 +26,18 @@ function updatePotions(){
     document.getElementById('statistics__current__Potions').innerHTML = `Total de pociones: ${player.getPotions()}`;
 }
 function updateGold(){
-    document.getElementById('statistics__current__Gold').innerHTML = `Oro: <span class="goldColor">${player.getGold()}</span>`;    
+    document.getElementById('statistics__current__Gold').innerHTML = `<b>Oro</b>: <span class="goldColor">${player.getGold()}</span>`;    
 }
 function updateExp(){
-    document.getElementById('statistics__current__XP').innerHTML = `Experiencia: ${player.getExp()}`;
+    document.getElementById('statistics__current__XP').innerHTML = `<b>Experiencia</b>: ${player.getExp()}`;
 }
 
 function updateStamina(){
-    document.getElementById('statistics__stamina').innerHTML = `Resistencia: ${player.getStamina()} / ${player.getMaxStamina()}`;
+    document.getElementById('statistics__stamina').innerHTML = `<b>Resistencia</b>: <span class="staminaColor">${player.getStamina()}</span> / <span class="staminaColor">${player.getMaxStamina()}</span>`;
 }
 
 function updateEssence(){
-    document.getElementById('statistics__essence').innerHTML = `Esencia: ${player.getEssence()} / ${player.getMaxEssence()}`;
+    document.getElementById('statistics__essence').innerHTML = `<b>Esencia</b>: <span class="essenceColor">${player.getEssence()}</span> / <span class="essenceColor">${player.getMaxEssence()}</span>`;
 }
 
 function clearLog(){
