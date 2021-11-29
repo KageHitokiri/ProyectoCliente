@@ -80,3 +80,10 @@ function logAutoScroll(){
         log.scrollTop = log.scrollHeight;
     }
 }
+
+function checkDeath(){
+    if (player.getHp()<=0){
+        alert("Has muerto");
+        clearUI();
+    }
+}

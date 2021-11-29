@@ -117,43 +117,35 @@ window.addEventListener('load',()=>{
 
     //Botones de combate
     hitButton.addEventListener('click', ()=>{
-        if (player.getHp()<=0){
-            alert("Has muerto");
-            clearUI();
+        checkDeath();        
+        player.attack(enemy);        
+        if(!enemy.getAliveStatus()) {
+            endCombatUI();
         } else {
-            player.attack(enemy);        
-            if(!enemy.getAliveStatus()) {
-                endCombatUI();
-            } else {
-                enemy.attack(player);
-            }
-            logAutoScroll();
-        }                
+            enemy.attack(player);
+        }
+        logAutoScroll();                        
     });
 
     hitHardButton.addEventListener('click',()=>{
-        if (player.getHp()<=0){
-            alert("Has muerto");
-            clearUI();
+        checkDeath();
+        player.strongAttack(enemy);
+        if(!enemy.getAliveStatus()) {
+            endCombatUI();
         } else {
-            player.strongAttack(enemy);
-            if(!enemy.getAliveStatus()) {
-                endCombatUI();
-            } else {
-                enemy.attack(player);
-            }
-            logAutoScroll();
-        } 
+            enemy.attack(player);
+        }
+        logAutoScroll();
     })
-    /*
-    Actualmente el enemigo no reacciona cuando huyes o cuando utilizas una poción, esto cambiará más adelante, ya que la idea principal es que todos los botones de interacción en combate impliquen una respuesta por parte del enemigo.  
-    */      
+     
     fleeButton.addEventListener('click',()=>{
+        checkDeath();
         endCombatUI(); 
         logAutoScroll();           
     })
 
     usePotionButton.addEventListener('click',()=>{
+        checkDeath();
         player.usePotion();
         logAutoScroll();
     });
