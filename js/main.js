@@ -53,6 +53,7 @@ window.addEventListener('load',()=>{
     //Botones de ciudad
     document.getElementById('city__shop').addEventListener('click',()=>{
         log.value+="Los comerciantes se niegan a comerciar contigo\n";
+        logAutoScroll();
     })
 
     document.getElementById('raid').addEventListener('click',()=>{
@@ -78,6 +79,7 @@ window.addEventListener('load',()=>{
         } else {
             log.value+=`No puedes permitirte este servicio\n`;
         }
+        logAutoScroll();
     })
 
     //Botones de viaje    
@@ -92,8 +94,9 @@ window.addEventListener('load',()=>{
     })
 
     document.getElementById('travel__rest').addEventListener('click',()=>{
-        log.value+=`Pasas la noche al raso, descansas algo, pero notas que no estás totalmente recuperado`;
+        log.value+=`Pasas la noche al raso, descansas algo, pero notas que no estás totalmente recuperado\n`;
         player.restore();
+        logAutoScroll();
     })
     
     //Botones de creación de enemigos
@@ -124,6 +127,7 @@ window.addEventListener('load',()=>{
             } else {
                 enemy.attack(player);
             }
+            logAutoScroll();
         }                
     });
 
@@ -138,16 +142,19 @@ window.addEventListener('load',()=>{
             } else {
                 enemy.attack(player);
             }
+            logAutoScroll();
         } 
     })
     /*
     Actualmente el enemigo no reacciona cuando huyes o cuando utilizas una poción, esto cambiará más adelante, ya que la idea principal es que todos los botones de interacción en combate impliquen una respuesta por parte del enemigo.  
     */      
     fleeButton.addEventListener('click',()=>{
-        endCombatUI();            
+        endCombatUI(); 
+        logAutoScroll();           
     })
 
     usePotionButton.addEventListener('click',()=>{
         player.usePotion();
+        logAutoScroll();
     });
 })

@@ -74,3 +74,9 @@ function storageCheck(){
         document.getElementById('loadGame').disabled=true;
     }
 }
+
+function logAutoScroll(){
+    if(log.selectionStart == log.selectionEnd) {
+        log.scrollTop = log.scrollHeight;
+    }
+}
