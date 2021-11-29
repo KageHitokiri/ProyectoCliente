@@ -247,6 +247,7 @@ class Enemy extends Player {
         }
 
         lootMessage += `\n\t-${this.exp} puntos de experiencia\n`;
+        lootMessage += `\t-${this.gold} monedas de oro`;
         log.value+=lootMessage;        
     }
     
