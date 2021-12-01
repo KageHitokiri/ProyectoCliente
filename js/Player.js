@@ -15,7 +15,6 @@ class Player {
         this.potionCounter = 1;
         this.isAliveStatus = true;
     }
-
     
     getName() {
         return this.name;
@@ -174,18 +173,17 @@ class Player {
         let health =10;
         console.log(this.potionCounter);
         if (this.potionCounter > 0) {
-            this.potionCounter--;
-            
+            this.potionCounter--;            
             player.hp += health;            
-            log.value += `Te sanas ${health} puntos de vida.`;
+            log.value += `Te sanas ${health} puntos de vida.\n`;
             updatePotions();        
-            if (player.hp > player.maxHp) {
+            if (player.hp >= player.maxHp) {
                 player.hp = player.maxHp;
-                log.value+=" Tu salud está al máximo\n";     
-                log.value += `Te quedan un total de ${this.potionCounter} pociones.\n`               
+                log.value+="Tu salud está al máximo\n";                     
             } else {
                 log.value+="\n";
             }
+            log.value += `Te quedan un total de ${this.potionCounter} pociones.\n`               
         } else {
             log.value+="No te quedan pociones\n";
         }
