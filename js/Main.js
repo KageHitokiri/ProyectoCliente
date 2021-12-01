@@ -10,14 +10,8 @@ window.addEventListener('load',()=>{
     let usePotionButton = document.getElementById('use__potion');
 
     gameStart();   
-    updatePlayerHP();
-    updateStamina();
-    updateEssence();
-    updateGold();
-    updateExp();
-    updatePotions();
-    updateEnemyName();
-    updateEnemyHP();
+    updatePlayerData();
+    updateEnemyData();
 
     //Botones de estadisticas del jugador
     document.getElementById('clearLog').addEventListener('click',()=>{
@@ -64,7 +58,7 @@ window.addEventListener('load',()=>{
     document.getElementById('city__inn').addEventListener('click',()=>{        
         if (player.getGold()>=10){
             if ((player.getHp()===player.getMaxHp()) && (player.getStamina() === player.getMaxStamina()) && (player.getEssence()===player.getMaxEssence())) {
-                console.log("Test");
+                log.value+=`Consideras que no necesitas descansar, tu salud, resistencia y esencia están al máximo.\n`;
             } else {
                 player.addGold(-10)            
                 log.value+=
